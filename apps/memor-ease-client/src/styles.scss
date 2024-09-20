@@ -1,7 +1,5 @@
 @import './style-variables.scss';
 
-body {
-  background-image: url('../assets/images/background.png');
+* {
   background-color: $background-color;
-  background-position: 50% 50%;
 }

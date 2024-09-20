@@ -22,8 +22,13 @@
             "input": "apps/memor-ease-client/public"
           }
         ],
-        "styles": ["apps/memor-ease-client/src/styles.scss"],
-        "scripts": []
+        "styles": [
+          "apps/memor-ease-client/src/styles.scss",
+          "node_modules/bootstrap/scss/bootstrap.scss"
+        ],
+        "scripts": [
+          "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+        ]
       },
       "configurations": {
         "production": {
