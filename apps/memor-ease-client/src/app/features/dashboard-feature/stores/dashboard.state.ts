@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { TopicResponse } from '../models/topic-response.interface';
-import { TopicActions } from './topic.actions';
 import { EMPTY, Observable, catchError, finalize, of, tap } from 'rxjs';
 import { DashboardService } from '../services/dashboard.service';
+import { DashboardActions } from './dashboard.actions';
 
-export interface TopicStateModel {
+export interface DashboardStateModel {
 	isDataFetching: boolean;
   topics: TopicResponse[];
 }
 
-const defaults: TopicStateModel = {
+const defaults: DashboardStateModel = {
 	isDataFetching: false,
   topics: []
 };
@@ -18,37 +18,31 @@ const defaults: TopicStateModel = {
 @Injectable({
 	providedIn: 'root',
 })
-@State<TopicStateModel>({
-	name: 'TopicState',
+@State<DashboardStateModel>({
+	name: 'DashboardState',
 	defaults: defaults,
 })
-export class TopicState {
+export class DashboardState {
   constructor(private readonly dashboardService: DashboardService) {}
 
 	@Selector()
-	static state(state: TopicStateModel): TopicStateModel {
+	static state(state: DashboardStateModel): DashboardStateModel {
     return state;
   }
 
-	@Action(TopicActions.GetAll)
-	getAll(ctx: StateContext<TopicStateModel>): Observable<TopicResponse[]> {
+	@Action(DashboardActions.GetAllTopics)
+	getAll(ctx: StateContext<DashboardStateModel>): Observable<TopicResponse[]> {
+    ctx.patchState({
+      isDataFetching: true
+    });
+
     return this.dashboardService.getAll()
       .pipe(
-        tap(() => {
-          ctx.patchState({
-            isDataFetching: true
-          });
-          console.log('TopicActions.GetAll - tap1', ctx.getState());
-        }),
-        catchError(_ => {
-          console.log('TopicActions.GetAll - catchError', ctx.getState());
-          return EMPTY;
-        }),
+        catchError(_ => EMPTY),
         tap<TopicResponse[]>(topics => {
           ctx.patchState({
             topics: topics
           });
-          console.log('TopicActions.GetAll - tap2', ctx.getState());
 
           return topics;
         }),
@@ -56,13 +50,12 @@ export class TopicState {
           ctx.patchState({
             isDataFetching: false
           });
-          console.log('TopicActions.GetAll - finalize', ctx.getState());
         })
       );
 	}
 
-  @Action(TopicActions.ResetState)
-	resetState(ctx: StateContext<TopicStateModel>): Observable<TopicStateModel> {
+  @Action(DashboardActions.ResetState)
+	resetState(ctx: StateContext<DashboardStateModel>): Observable<DashboardStateModel> {
 		ctx.setState(defaults);
 
 		return of(defaults);

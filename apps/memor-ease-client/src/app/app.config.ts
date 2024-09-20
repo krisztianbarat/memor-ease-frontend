@@ -4,7 +4,7 @@ import { appRoutes } from './app.routes';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { TopicState } from './features/dashboard-feature/stores/topic.state';
+import { DashboardState } from './features/dashboard-feature/stores/dashboard.state';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
@@ -13,7 +13,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(appRoutes, withEnabledBlockingInitialNavigation()),
     importProvidersFrom(
       NgxsModule.forRoot([
-        TopicState
+        DashboardState
       ]),
       NgxsLoggerPluginModule.forRoot(),
       NgxsReduxDevtoolsPluginModule.forRoot()

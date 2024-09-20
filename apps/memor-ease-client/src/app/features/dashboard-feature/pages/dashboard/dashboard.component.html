@@ -1,6 +1,18 @@
-<div class="container">
+<div class="container topics-container">
   <div class="row justify-content-center align-item-center">
-    <div class="col-6">
+    <div class="col-6 rounded" *ngIf="state$ | async as state">
+      <button (click)="onRefresh()" [disabled]="state.isDataFetching" class="btn btn-primary" type="button">
+        <span *ngIf="state.isDataFetching" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+
+        <span *ngIf="!state.isDataFetching" class="sr-only">Frissítés</span>
+
+        <span *ngIf="state.isDataFetching" class="sr-only loading-label">Frissítés folyamatban...</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="row justify-content-center align-item-center">
+    <div class="col-6 rounded" *ngIf="state$ | async as state">
 
     </div>
   </div>

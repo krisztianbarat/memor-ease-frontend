@@ -1,0 +1,11 @@
+@import '../../../../../style-variables.scss';
+
+.topics-container {
+  background-color: $component-backgroung;
+  padding: 1rem;
+  width: 50vw;
+}
+
+.loading-label {
+  margin-left: 0.5rem;
+}

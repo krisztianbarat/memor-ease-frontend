@@ -1,5 +1,5 @@
 @import './style-variables.scss';
 
-* {
+body, header, nav, main, footer {
   background-color: $background-color;
 }
