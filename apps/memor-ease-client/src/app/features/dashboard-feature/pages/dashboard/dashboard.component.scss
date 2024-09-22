@@ -1,7 +1,7 @@
 @import '../../../../../style-variables.scss';
 
-.topics-container {
-  background-color: $component-backgroung;
+.dashboard-container {
+  background-color: $component-background;
   padding: 1.5rem;
   width: 50vw;
   border-radius: 1.5rem;
@@ -11,6 +11,10 @@
     color: #7769E3;
     border: none;
     font-weight: bold;
+  }
+
+  .topics-container {
+    width: 100%;
   }
 }
 
