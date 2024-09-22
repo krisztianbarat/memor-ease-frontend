@@ -1,16 +1,4 @@
 <div class="container dashboard-container" *ngIf="state$ | async as state">
-  <div class="row justify-content-start align-item-center mb-5">
-    <div class="col-6 rounded">
-      <button (click)="onRefresh()" [disabled]="state.isDataFetching" class="btn btn-primary refresh-btn" type="button">
-        <span *ngIf="state.isDataFetching" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-
-        <span *ngIf="!state.isDataFetching" class="sr-only">Frissítés</span>
-
-        <span *ngIf="state.isDataFetching" class="sr-only loading-label">Frissítés folyamatban...</span>
-      </button>
-    </div>
-  </div>
-
   <div class="row justify-content-start align-item-center">
     <div class="col-6 rounded topics-container">
       <app-topic-list

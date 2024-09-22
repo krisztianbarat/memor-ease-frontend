@@ -18,10 +18,4 @@ import { DictionaryState } from 'apps/memor-ease-client/src/app/cores/store/dict
 export class DashboardComponent {
   state$: Observable<DashboardStateModel> = inject(Store).select(DashboardState.state);
   dictionaryLanguages$: Observable<KeyValuePair<number, string>[]> = inject(Store).select(DictionaryState.dictionaryLanguages);
-
-  constructor(private readonly store: Store) { }
-
-  onRefresh(): void {
-    this.store.dispatch(DashboardActions.GetAccessedTopics);
-  }
 }
