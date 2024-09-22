@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { TopicResponse } from '../models/topic-response.interface';
 import { EMPTY, Observable, catchError, finalize, of, tap } from 'rxjs';
 import { DashboardService } from '../services/dashboard.service';
+import { AccessedTopic } from '../models/accessed-topic.interface';
 import { DashboardActions } from './dashboard.actions';
 
 export interface DashboardStateModel {
 	isDataFetching: boolean;
-  topics: TopicResponse[];
+  accessedTopics: AccessedTopic[];
 }
 
 const defaults: DashboardStateModel = {
 	isDataFetching: false,
-  topics: []
+  accessedTopics: []
 };
 
 @Injectable({
@@ -30,21 +30,21 @@ export class DashboardState {
     return state;
   }
 
-	@Action(DashboardActions.GetAllTopics)
-	getAll(ctx: StateContext<DashboardStateModel>): Observable<TopicResponse[]> {
+	@Action(DashboardActions.GetAccessedTopics)
+	getAccessedTopics(ctx: StateContext<DashboardStateModel>): Observable<AccessedTopic[]> {
     ctx.patchState({
       isDataFetching: true
     });
 
-    return this.dashboardService.getAll()
+    return this.dashboardService.getAccessedTopics()
       .pipe(
         catchError(_ => EMPTY),
-        tap<TopicResponse[]>(topics => {
+        tap<AccessedTopic[]>(accessedTopics => {
           ctx.patchState({
-            topics: topics
+            accessedTopics: accessedTopics
           });
 
-          return topics;
+          return accessedTopics;
         }),
         finalize(() => {
           ctx.patchState({

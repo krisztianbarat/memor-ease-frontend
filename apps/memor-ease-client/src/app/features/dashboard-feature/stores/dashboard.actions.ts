@@ -1,6 +1,6 @@
 export namespace DashboardActions {
-	export class GetAllTopics {
-		static type = '[DashboardActions] GetAll';
+	export class GetAccessedTopics {
+		static type = '[DashboardActions] GetAccessedTopics';
 	}
 
   export class ResetState {

@@ -2,8 +2,16 @@
 
 .topics-container {
   background-color: $component-backgroung;
-  padding: 1rem;
+  padding: 1.5rem;
   width: 50vw;
+  border-radius: 1.5rem;
+
+  .refresh-btn {
+    background-color: #ffffff;
+    color: #7769E3;
+    border: none;
+    font-weight: bold;
+  }
 }
 
 .loading-label {
