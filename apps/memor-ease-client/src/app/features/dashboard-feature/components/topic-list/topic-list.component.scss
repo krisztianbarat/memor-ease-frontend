@@ -1,0 +1,22 @@
+.topic-container {
+  .topic-row {
+    color: #ffffff;
+
+    .topic-col {
+      margin: 0;
+      display: inline-block;
+
+      h1 {
+        margin: 0 0 0.125rem 0;
+      }
+
+      .language-details {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .topic-row:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}
