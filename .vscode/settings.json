@@ -1,0 +1,49 @@
+{
+	"workbench.tree.indent": 4,
+	"git.autofetch": true,
+	"editor.tabSize": 4,
+	"editor.insertSpaces": false,
+	"editor.formatOnSave": true,
+	"editor.detectIndentation": false,
+	"editor.bracketPairColorization.enabled": true,
+	"editor.codeActionsOnSave": {
+		"source.organizeImports": "explicit",
+		"source.fixAll.eslint": "explicit"
+	},
+	"prettier.useTabs": true,
+	"prettier.tabWidth": 4,
+	"prettier.arrowParens": "avoid",
+	"prettier.trailingComma": "all",
+	"scssFormatter.trailingComma": "all",
+	"eslint.validate": [
+		"javascript",
+		"typescript",
+		"html",
+		"json",
+		"scss"
+	],
+	"eslint.options": {
+		"extensions": [
+			".js",
+			".ts",
+			"html",
+			".json",
+			".scss"
+		]
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	},
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[scss]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
+}
