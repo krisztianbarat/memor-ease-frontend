@@ -3,13 +3,24 @@
 .container-fluid {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 
-  .topic-panel,
-  .profile-panel {
-    height: 100vh;
+  .main-row {
+    margin: 0;
   }
 
-  .profile-panel {
+  .dashboard-and-topic-col,
+  .profile-col {
+    height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  .dashboard-and-topic-col {
+    padding: 1rem;
+  }
+
+  .profile-col {
     background: $background-gray;
   }
 }

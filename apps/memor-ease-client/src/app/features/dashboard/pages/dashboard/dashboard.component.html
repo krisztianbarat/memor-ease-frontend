@@ -1,16 +1,28 @@
 <div class="container-fluid" *ngIf="state$ | async as state">
-  <div class="row">
-    <div class="col-12 col-md-8 topic-panel">
-      <app-accessed-topic-list
-        [accessedTopics]="state.accessedTopics"
-      ></app-accessed-topic-list>
+  <div class="row main-row">
+    <div class="col-12 col-md-8 dashboard-and-topic-col">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 topic-col">
+            <app-page-title
+              [title]="'dashboard.title' | translate"
+            ></app-page-title>
+          </div>
+
+          <div class="col-12 topic-col">
+            <app-accessed-topic-list
+              [accessedTopics]="state.accessedTopics"
+            ></app-accessed-topic-list>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="col-12 col-md-4 profile-panel">
+    <div class="col-12 col-md-4 profile-col">
       <button (click)="nextLanguage()">
         {{ 'next-language' | translate }}
       </button>
-      *{{ 'hello-my-friend' | translate }}*
+      *{{ 'my-topics' | translate }}*
     </div>
   </div>
 </div>

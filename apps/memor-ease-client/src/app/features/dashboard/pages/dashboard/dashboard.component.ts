@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Store } from '@ngxs/store';
+import { PageTitleComponent } from 'apps/memor-ease-client/src/app/core/components/page-title/page-title.component';
 import { Observable } from 'rxjs';
 import { AccessedTopicListComponent } from '../../components/accessed-topic-list/accessed-topic-list.component';
 import { AccessedTopic } from '../../models/accessed-topic.interface';
@@ -14,7 +15,12 @@ import {
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, AccessedTopicListComponent, TranslateModule],
+  imports: [
+    CommonModule,
+    AccessedTopicListComponent,
+    TranslateModule,
+    PageTitleComponent,
+  ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })

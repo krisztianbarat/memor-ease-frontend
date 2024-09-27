@@ -1,3 +1,5 @@
 {
-  "next-language": "Nächste Sprache"
+  "dashboard": {
+    "title": "Meine Themen"
+  }
 }

@@ -1,4 +1,5 @@
 {
-  "hello-my-friend": "Szia, barátom!",
-  "next-language": "Következő nyelv"
+  "dashboard": {
+    "title": "Topikjaim"
+  }
 }
