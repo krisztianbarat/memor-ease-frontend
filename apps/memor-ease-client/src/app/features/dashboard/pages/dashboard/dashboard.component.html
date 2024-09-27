@@ -1,0 +1,11 @@
+<div class="container-fluid" *ngIf="state$ | async as state">
+  <div class="row">
+    <div class="col-12 col-md-8 topic-panel">
+      <app-accessed-topic-list
+        [accessedTopics]="state.accessedTopics"
+      ></app-accessed-topic-list>
+    </div>
+
+    <div class="col-12 col-md-4 profile-panel">*panel*</div>
+  </div>
+</div>
