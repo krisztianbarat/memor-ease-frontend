@@ -6,6 +6,11 @@
       ></app-accessed-topic-list>
     </div>
 
-    <div class="col-12 col-md-4 profile-panel">*panel*</div>
+    <div class="col-12 col-md-4 profile-panel">
+      <button (click)="nextLanguage()">
+        {{ 'next-language' | translate }}
+      </button>
+      *{{ 'hello-my-friend' | translate }}*
+    </div>
   </div>
 </div>

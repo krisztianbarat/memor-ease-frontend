@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { AccessedTopicListComponent } from '../../components/accessed-topic-list/accessed-topic-list.component';
@@ -13,7 +14,7 @@ import {
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, AccessedTopicListComponent],
+  imports: [CommonModule, AccessedTopicListComponent, TranslateModule],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
@@ -22,7 +23,13 @@ export class DashboardComponent implements OnInit {
     DashboardState.state
   );
 
-  constructor(private readonly store: Store) {
+  currentLanguageId = 0;
+  private readonly languages = ['en-GB', 'hu-HU', 'de-DE'];
+
+  constructor(
+    private readonly store: Store,
+    private readonly translateService: TranslateService
+  ) {
     this.state$.subscribe((state) => console.log('DashboardComponent', state));
   }
 
@@ -32,5 +39,22 @@ export class DashboardComponent implements OnInit {
 
   accessedTopicTrackById(_: number, accessedTopic: AccessedTopic): string {
     return accessedTopic.id;
+  }
+
+  nextLanguage(): void {
+    switch (this.currentLanguageId) {
+      case 0:
+        this.currentLanguageId++;
+        break;
+      case 1:
+        this.currentLanguageId++;
+        break;
+      case 2:
+        this.currentLanguageId = 0;
+        break;
+    }
+
+    const language = this.languages[this.currentLanguageId];
+    this.translateService.use(language);
   }
 }
