@@ -1,5 +1,31 @@
 {
   "dashboard": {
-    "title": "Meine Themen"
+    "title": "Meine Themen",
+    "topic": {
+      "filter": {
+        "filter-by": "Filtern nach",
+        "title-substring": "Titel",
+        "description-substring": "Beschreibung",
+        "Ebene": "Ebene",
+        "source-language": "Ausgangssprache",
+        "target-language": "Zielsprache"
+      }
+    },
+    "navigate": {
+      "topic-create": "Ein Thema erstellen"
+    }
+  },
+  "topic": {
+    "create": {
+      "title": "Ein Thema erstellen",
+      "form": {
+        "language-level": "Sprachebene"
+      }
+    }
+  },
+  "formsingle-selector-autocomplete": {
+    "placeholders": {
+      "type-to-search": "Tippen Sie, um zu suchen..."
+    }
   }
 }

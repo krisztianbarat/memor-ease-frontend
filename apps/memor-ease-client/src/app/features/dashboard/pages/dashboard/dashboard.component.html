@@ -1,15 +1,25 @@
 <div class="container-fluid" *ngIf="state$ | async as state">
   <div class="row main-row">
-    <div class="col-12 col-md-8 dashboard-and-topic-col">
+    <div class="col-12 col-md-8 p-0">
       <div class="container">
-        <div class="row">
-          <div class="col-12 topic-col">
+        <div class="row mb-3">
+          <div class="col-12 p-0">
             <app-page-title
               [title]="'dashboard.title' | translate"
             ></app-page-title>
           </div>
+        </div>
 
-          <div class="col-12 topic-col">
+        <div class="row mb-3">
+          <app-sync-button
+            class="p-0"
+            [label]="'dashboard.navigate.topic-create' | translate"
+            (clicked)="onClick()"
+          ></app-sync-button>
+        </div>
+
+        <div class="row accessed-topic-row">
+          <div class="col-12">
             <app-accessed-topic-list
               [accessedTopics]="state.accessedTopics"
             ></app-accessed-topic-list>

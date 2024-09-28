@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Store } from '@ngxs/store';
 import { PageTitleComponent } from 'apps/memor-ease-client/src/app/core/components/page-title/page-title.component';
+import { SyncButtonComponent } from 'apps/memor-ease-client/src/app/core/components/sync-button/sync-button.component';
 import { Observable } from 'rxjs';
 import { AccessedTopicListComponent } from '../../components/accessed-topic-list/accessed-topic-list.component';
 import { AccessedTopic } from '../../models/accessed-topic.interface';
@@ -20,6 +22,7 @@ import {
     AccessedTopicListComponent,
     TranslateModule,
     PageTitleComponent,
+    SyncButtonComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
@@ -34,7 +37,8 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private readonly store: Store,
-    private readonly translateService: TranslateService
+    private readonly translateService: TranslateService,
+    private readonly router: Router
   ) {
     this.state$.subscribe((state) => console.log('DashboardComponent', state));
   }
@@ -62,5 +66,10 @@ export class DashboardComponent implements OnInit {
 
     const language = this.languages[this.currentLanguageId];
     this.translateService.use(language);
+  }
+
+  onClick(): void {
+    console.log('/topic/create');
+    this.router.navigate(['topic', 'create']);
   }
 }

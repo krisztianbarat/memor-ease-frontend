@@ -1,0 +1,6 @@
+<app-page-title [title]="'topic.create.title' | translate"></app-page-title>
+<app-single-selector-autocomplete
+  *ngIf="languageLevels$ | async as languageLevels"
+  [label]="'topic.create.form.language-level' | translate"
+  [options]="languageLevels ?? []"
+></app-single-selector-autocomplete>

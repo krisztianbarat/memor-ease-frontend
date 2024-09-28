@@ -1,5 +1,31 @@
 {
   "dashboard": {
-    "title": "My topics"
+    "title": "My topics",
+    "topic": {
+      "filter": {
+        "filter-by": "Filter by",
+        "title-substring": "Title",
+        "description-substring": "Description",
+        "level": "Level",
+        "source-language": "Source language",
+        "target-language": "Target language"
+      }
+    },
+    "navigate": {
+      "topic-create": "Create a topic"
+    }
+  },
+  "topic": {
+    "create": {
+      "title": "Create a topic",
+      "form": {
+        "language-level": "Language level"
+      }
+    }
+  },
+  "formsingle-selector-autocomplete": {
+    "placeholders": {
+      "type-to-search": "Start typing to search..."
+    }
   }
 }

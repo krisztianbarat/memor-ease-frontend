@@ -1,5 +1,31 @@
 {
   "dashboard": {
-    "title": "Topikjaim"
+    "title": "Topikjaim",
+    "topic": {
+      "filter": {
+        "filter-by": "Szűrés",
+        "title-substring": "Cím",
+        "description-substring": "Leírás",
+        "level": "Szint",
+        "source-language": "Forrás nyelv",
+        "target-language": "Cél nyelv"
+      }
+    },
+    "navigate": {
+      "topic-create": "Topik létrehozása"
+    }
+  },
+  "topic": {
+    "create": {
+      "title": "Topik létrehozás",
+      "form": {
+        "language-level": "Nyelvi szint"
+      }
+    }
+  },
+  "formsingle-selector-autocomplete": {
+    "placeholders": {
+      "type-to-search": "Kezdj el gépelni a kereséshez..."
+    }
   }
 }

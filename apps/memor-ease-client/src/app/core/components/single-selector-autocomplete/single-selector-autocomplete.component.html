@@ -1,0 +1,17 @@
+<div class="container-fluid upsert-container">
+  <label class="form-label">{{ label | translate }}</label>
+  <input
+    class="form-control"
+    list="options-list"
+    placeholder="{{
+      'formsingle-selector-autocomplete.placeholders.type-to-search' | translate
+    }}"
+  />
+  <datalist id="options-list">
+    <option
+      *ngFor="let option of options"
+      [value]="option.value"
+      (change)="onKeyPress($event.target)"
+    ></option>
+  </datalist>
+</div>
