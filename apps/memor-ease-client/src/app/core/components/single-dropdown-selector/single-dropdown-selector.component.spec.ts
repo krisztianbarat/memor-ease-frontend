@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SingleSelectorAutocompleteComponent } from './single-selector-autocomplete.component';
+import { SingleSelectorAutocompleteComponent } from './single-dropdown-selector.component';
 
 describe('SingleSelectorAutocompleteComponent', () => {
   let component: SingleSelectorAutocompleteComponent;

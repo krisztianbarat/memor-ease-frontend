@@ -26,8 +26,8 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.translateService.setDefaultLang('en-GB');
-    this.translateService.use('en-GB');
+    this.translateService.setDefaultLang('hu-HU');
+    this.translateService.use('hu-HU');
     this.store.dispatch(
       DictionaryActions.GetDictionaryInternationalizationResponses
     );

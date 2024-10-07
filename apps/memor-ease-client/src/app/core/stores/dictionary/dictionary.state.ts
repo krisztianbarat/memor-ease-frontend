@@ -69,7 +69,7 @@ export class DictionaryState {
                   string
                 >[],
               languageLevels:
-                dictionaryInternationalizationResponse?.dictionaryLanguages as unknown as KeyValuePair<
+                dictionaryInternationalizationResponse?.languageLevels as unknown as KeyValuePair<
                   number,
                   string
                 >[],

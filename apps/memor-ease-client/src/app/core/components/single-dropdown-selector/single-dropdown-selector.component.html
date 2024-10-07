@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">{{ label | translate }}</div>
+
+  <div class="row dropdown-row">
+    <button
+      type="button container"
+      class="dropdown-data-toggle"
+      data-toggle="dropdown"
+    >
+      <div class="row">
+        <div class="col-11">{{ getSelectedOptionValue() }}</div>
+        <div class="col-1">x</div>
+      </div>
+    </button>
+    <div class="dropdown-menu">
+      <button
+        *ngIf="isNullValueSelectable"
+        class="dropdown-item"
+        (click)="onSelectOption(null)"
+      >
+        &zwnj;
+      </button>
+
+      <button
+        *ngFor="let option of options"
+        class="dropdown-item"
+        (click)="onSelectOption(option.key)"
+      >
+        {{ option.value }}
+      </button>
+    </div>
+  </div>
+</div>

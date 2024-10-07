@@ -19,7 +19,9 @@
     "create": {
       "title": "Topik létrehozás",
       "form": {
-        "language-level": "Nyelvi szint"
+        "language-level": "Nyelvi szint",
+        "source-language": "Forrás nyelv",
+        "target-language": "Cél nyelv"
       }
     }
   },

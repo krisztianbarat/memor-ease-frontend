@@ -4,8 +4,8 @@ import { Store } from '@ngxs/store';
 import { map, of } from 'rxjs';
 import { DashboardComponent } from './features/dashboard/pages/dashboard/dashboard.component';
 import { DashboardActions } from './features/dashboard/stores/dashboard.actions';
-import { UpsertComponent } from './features/topic/pages/upsert/upsert.component';
-import { TopicActions } from './features/topic/stores/topic.actions';
+import { TopicCreateComponent } from './features/topic/pages/topic-create/topic-create.component';
+import { TopicCreateActions } from './features/topic/stores/topic-create.actions';
 
 export const appRoutes: Route[] = [
   {
@@ -29,12 +29,12 @@ export const appRoutes: Route[] = [
     children: [
       {
         path: 'create',
-        component: UpsertComponent,
+        component: TopicCreateComponent,
         canActivate: [() => of(true)],
         canDeactivate: [
           () =>
             inject(Store)
-              .dispatch(TopicActions.ResetState)
+              .dispatch(TopicCreateActions.ResetState)
               .pipe(map(() => true)),
         ],
       },

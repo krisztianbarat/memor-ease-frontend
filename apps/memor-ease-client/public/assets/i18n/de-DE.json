@@ -19,7 +19,9 @@
     "create": {
       "title": "Ein Thema erstellen",
       "form": {
-        "language-level": "Sprachebene"
+        "language-level": "Sprachebene",
+        "source-language": "Ausgangssprache",
+        "target-language": "Zielsprache"
       }
     }
   },

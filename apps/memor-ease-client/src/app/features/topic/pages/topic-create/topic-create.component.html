@@ -1,0 +1,7 @@
+<app-page-title [title]="'topic.create.title'"></app-page-title>
+<div class="container-fluid topic-create-container">
+  <app-topic-create-form
+    [dictionaryLanguages]="(dictionaryLanguages$ | async) ?? []"
+    [languageLevels]="(languageLevels$ | async) ?? []"
+  ></app-topic-create-form>
+</div>

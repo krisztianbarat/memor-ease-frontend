@@ -19,7 +19,9 @@
     "create": {
       "title": "Create a topic",
       "form": {
-        "language-level": "Language level"
+        "language-level": "Language level",
+        "source-language": "Source language",
+        "target-language": "Target language"
       }
     }
   },
