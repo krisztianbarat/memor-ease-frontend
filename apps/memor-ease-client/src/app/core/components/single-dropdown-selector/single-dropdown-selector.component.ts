@@ -7,7 +7,7 @@ import { KeyValuePair } from '../../stores/dictionary/models/key-value-pair.inte
 @Component({
   selector: 'app-single-dropdown-selector',
   standalone: true,
-  imports: [CommonModule, TranslateModule, MatIconModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './single-dropdown-selector.component.html',
   styleUrl: './single-dropdown-selector.component.scss',
 })
