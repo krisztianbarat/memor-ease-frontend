@@ -30,6 +30,21 @@
         "title": {
           "label": "Titel des Themas",
           "placeholder": "Titel des Themas"
+        },
+        "description": {
+          "label": "Beschreibung des Themas",
+          "placeholder": "Beschreibung des Themas"
+        },
+        "topic-dictionaries": {
+          "add": "Ein neues Wort hinzufügen",
+          "source-word": {
+            "label": "Ausgangswort",
+            "placeholder": "Ausgangswort"
+          },
+          "target-word": {
+            "label": "Zielwort",
+            "placeholder": "Zielwort"
+          }
         }
       }
     }

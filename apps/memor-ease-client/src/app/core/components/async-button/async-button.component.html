@@ -4,6 +4,7 @@
     [ngClass]="{ disabled: disabled }"
     (click)="onClick()"
   >
+    <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin-pulse"></i>
     {{ label | translate }}
   </div>
 </div>

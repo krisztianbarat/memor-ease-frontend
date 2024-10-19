@@ -3,15 +3,16 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-sync-button',
+  selector: 'app-async-button',
   standalone: true,
   imports: [CommonModule, TranslateModule],
-  templateUrl: './sync-button.component.html',
-  styleUrl: './sync-button.component.scss',
+  templateUrl: './async-button.component.html',
+  styleUrl: './async-button.component.scss',
 })
-export class SyncButtonComponent {
+export class AsyncButtonComponent {
   @Input() label = '';
   @Input() disabled = false;
+  @Input() isLoading = false;
 
   @Output() clicked = new EventEmitter<void>();
 

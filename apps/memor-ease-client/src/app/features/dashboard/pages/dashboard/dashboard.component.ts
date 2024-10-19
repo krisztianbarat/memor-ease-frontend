@@ -39,9 +39,7 @@ export class DashboardComponent implements OnInit {
     private readonly store: Store,
     private readonly translateService: TranslateService,
     private readonly router: Router
-  ) {
-    this.state$.subscribe((state) => console.log('DashboardComponent', state));
-  }
+  ) {}
 
   ngOnInit(): void {
     this.store.dispatch(DashboardActions.GetAccessedTopics);

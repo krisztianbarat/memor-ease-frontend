@@ -30,6 +30,21 @@
         "title": {
           "label": "Topik címe",
           "placeholder": "Topik címe"
+        },
+        "description": {
+          "label": "Topik leírása",
+          "placeholder": "Topik leírása"
+        },
+        "topic-dictionaries": {
+          "add": "Új szó hozzáadása",
+          "source-word": {
+            "label": "Forrás szó",
+            "placeholder": "Forrás szó"
+          },
+          "target-word": {
+            "label": "Cél szó",
+            "placeholder": "Cél szó"
+          }
         }
       }
     }

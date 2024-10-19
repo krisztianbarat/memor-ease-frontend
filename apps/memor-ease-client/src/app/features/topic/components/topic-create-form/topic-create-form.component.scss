@@ -2,4 +2,8 @@
   .row:not(:last-child) {
     margin-bottom: 1rem;
   }
+
+  app-topic-word:not(:last-child) {
+    margin-bottom: 1rem;
+  }
 }

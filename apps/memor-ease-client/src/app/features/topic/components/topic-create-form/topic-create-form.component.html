@@ -4,9 +4,10 @@
   [formGroup]="untypedFormGroup"
 >
   <div class="row">
-    <app-sync-button
+    <app-async-button
       [label]="'common.button.save' | translate"
-    ></app-sync-button>
+      [disabled]="!untypedFormGroup.valid"
+    ></app-async-button>
   </div>
 
   <div class="row">
@@ -51,5 +52,35 @@
         (valueChanges)="onTitleValueChanges($event)"
       ></app-input>
     </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <app-text-area
+        [label]="'topic.create.form.description.label'"
+        [placeholder]="'topic.create.form.description.placeholder'"
+        [required]="false"
+        (valueChanges)="onDescriptionValueChanges($event)"
+      ></app-text-area>
+    </div>
+  </div>
+
+  <div class="row topic-word-row">
+    <app-topic-word
+      formArrayName="topicDictionaries"
+      *ngFor="
+        let art of getTopicDictionariesFormArray().controls;
+        let i = index
+      "
+      (deleteTopicWord)="onDeleteTopicWord(i)"
+    ></app-topic-word>
+  </div>
+
+  <div class="row justify-content-center align-items-center">
+    <app-sync-button
+      class="col-2 text-center"
+      [label]="'topic.create.form.topic-dictionaries.add' | translate"
+      (clicked)="onAddTopicDictionary()"
+    ></app-sync-button>
   </div>
 </div>

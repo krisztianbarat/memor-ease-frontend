@@ -30,6 +30,21 @@
         "title": {
           "label": "Title of topic",
           "placeholder": "Title of topic"
+        },
+        "description": {
+          "label": "Description of topic",
+          "placeholder": "Description of topic"
+        },
+        "topic-dictionaries": {
+          "add": "Add new word",
+          "source-word": {
+            "label": "Source word",
+            "placeholder": "Source word"
+          },
+          "target-word": {
+            "label": "Target word",
+            "placeholder": "Target word"
+          }
         }
       }
     }

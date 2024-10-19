@@ -1,16 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import {
+  FormArray,
   ReactiveFormsModule,
+  UntypedFormArray,
   UntypedFormBuilder,
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { AsyncButtonComponent } from 'apps/memor-ease-client/src/app/core/components/async-button/async-button.component';
 import { InputComponent } from 'apps/memor-ease-client/src/app/core/components/input/input.component';
 import { SingleDropdownSelectorComponent } from 'apps/memor-ease-client/src/app/core/components/single-dropdown-selector/single-dropdown-selector.component';
+import { SyncButtonComponent } from 'apps/memor-ease-client/src/app/core/components/sync-button/sync-button.component';
+import { TextAreaComponent } from 'apps/memor-ease-client/src/app/core/components/text-area/text-area.component';
 import { KeyValuePair } from 'apps/memor-ease-client/src/app/core/stores/dictionary/models/key-value-pair.interface';
-import { SyncButtonComponent } from '../../../../core/components/sync-button/sync-button.component';
+import { TopicWordComponent } from '../topic-word/topic-word.component';
 
 @Component({
   selector: 'app-topic-create-form',
@@ -22,6 +27,9 @@ import { SyncButtonComponent } from '../../../../core/components/sync-button/syn
     InputComponent,
     TranslateModule,
     SyncButtonComponent,
+    AsyncButtonComponent,
+    TopicWordComponent,
+    TextAreaComponent,
   ],
   templateUrl: './topic-create-form.component.html',
   styleUrl: './topic-create-form.component.scss',
@@ -36,6 +44,26 @@ export class TopicCreateFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+  }
+
+  getTopicDictionariesFormArray(): UntypedFormArray {
+    const result = this.untypedFormGroup.get(
+      'topicDictionaries'
+    ) as UntypedFormArray;
+
+    return result;
+  }
+
+  public onDeleteTopicWord(i: number) {
+    const topicDictionaries = this.untypedFormGroup.get(
+      'topicDictionaries'
+    ) as FormArray;
+
+    if (topicDictionaries.length > 1) {
+      topicDictionaries.removeAt(i);
+    } else {
+      topicDictionaries.reset();
+    }
   }
 
   onSelectedLanguageLevelsOption(optionKey: number | null): void {
@@ -63,12 +91,40 @@ export class TopicCreateFormComponent implements OnInit {
     this.untypedFormGroup.get('title')?.updateValueAndValidity();
   }
 
+  onDescriptionValueChanges(description: string | number): void {
+    this.untypedFormGroup.patchValue({
+      description: description,
+    });
+    this.untypedFormGroup.get('description')?.updateValueAndValidity();
+  }
+
+  getTopicDictionaries(): UntypedFormArray {
+    const topicDictionaries =
+      this.untypedFormGroup.get('topicDictionaries')?.value;
+
+    return topicDictionaries as UntypedFormArray;
+  }
+
+  onAddTopicDictionary(): void {
+    const topicDictionaries = this.untypedFormGroup.get(
+      'topicDictionaries'
+    ) as FormArray;
+    topicDictionaries.push(
+      this.untypedFormBuilder.group({
+        sourceWord: [null, [Validators.required]],
+        targetWord: [null, [Validators.required]],
+      })
+    );
+  }
+
   private initForm(): void {
     this.untypedFormGroup = this.untypedFormBuilder.group({
-      title: [null, [Validators.required]],
-      languageLevel: [1, []],
       sourceLanguage: [1, []],
       targetLanguage: [1, []],
+      title: [null, [Validators.required]],
+      topicDictionaries: this.untypedFormBuilder.array([]),
+      description: [null, []],
+      languageLevel: [1, []],
     });
   }
 }

@@ -1,0 +1,8 @@
+<div class="form-group" *ngIf="untypedFormGroup" [formGroup]="untypedFormGroup">
+  <label>{{ label | translate }}</label>
+  <textarea
+    formControlName="value"
+    class="form-control"
+    placeholder="{{ placeholder | translate }}"
+  ></textarea>
+</div>
