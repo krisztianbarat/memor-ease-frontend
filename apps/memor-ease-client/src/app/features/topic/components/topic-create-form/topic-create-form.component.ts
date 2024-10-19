@@ -6,9 +6,11 @@ import {
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 import { InputComponent } from 'apps/memor-ease-client/src/app/core/components/input/input.component';
 import { SingleDropdownSelectorComponent } from 'apps/memor-ease-client/src/app/core/components/single-dropdown-selector/single-dropdown-selector.component';
 import { KeyValuePair } from 'apps/memor-ease-client/src/app/core/stores/dictionary/models/key-value-pair.interface';
+import { SyncButtonComponent } from '../../../../core/components/sync-button/sync-button.component';
 
 @Component({
   selector: 'app-topic-create-form',
@@ -18,6 +20,8 @@ import { KeyValuePair } from 'apps/memor-ease-client/src/app/core/stores/diction
     SingleDropdownSelectorComponent,
     ReactiveFormsModule,
     InputComponent,
+    TranslateModule,
+    SyncButtonComponent,
   ],
   templateUrl: './topic-create-form.component.html',
   styleUrl: './topic-create-form.component.scss',
@@ -50,6 +54,13 @@ export class TopicCreateFormComponent implements OnInit {
     this.untypedFormGroup.patchValue({
       languageLevel: optionKey,
     });
+  }
+
+  onTitleValueChanges(title: string | number): void {
+    this.untypedFormGroup.patchValue({
+      title: title,
+    });
+    this.untypedFormGroup.get('title')?.updateValueAndValidity();
   }
 
   private initForm(): void {

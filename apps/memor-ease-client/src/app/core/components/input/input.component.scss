@@ -1,3 +1,16 @@
-.row {
-  gap: 1rem;
+@import '../../../../style-variables.scss';
+
+.form-control {
+  // background: $background-purple;
+  color: #000000;
+  border: 1px solid #ced4da;
+
+  &:focus {
+    border-color: $background-purple;
+    box-shadow: 0 0 0 0.2rem $background-light-purple;
+  }
+
+  &:not(:focus) {
+    caret-color: rgba(0, 0, 0, 0);
+  }
 }

@@ -69,7 +69,6 @@ export class DashboardComponent implements OnInit {
   }
 
   onClick(): void {
-    console.log('/topic/create');
     this.router.navigate(['topic', 'create']);
   }
 }

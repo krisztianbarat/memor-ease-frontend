@@ -1,5 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { KeyValuePair } from '../../stores/dictionary/models/key-value-pair.interface';
@@ -19,9 +27,15 @@ export class SingleDropdownSelectorComponent implements OnInit {
 
   @Output() selectedOption = new EventEmitter<number | null>();
 
+  @ViewChild('dropDown') dropDown: ElementRef | undefined;
+
   untypedFormGroup: UntypedFormGroup | undefined;
 
   constructor(private readonly untypedFormBuilder: UntypedFormBuilder) {}
+
+  isShow(): boolean {
+    return this.dropDown?.nativeElement.classList.contains('show');
+  }
 
   ngOnInit(): void {
     this.initForm();
@@ -32,15 +46,17 @@ export class SingleDropdownSelectorComponent implements OnInit {
     const selectedOptionValue = this.untypedFormGroup?.getRawValue()
       .option as number;
 
-    if (selectedOptionValue === null) {
-      return '°';
+    if (selectedOptionValue !== null && this.options) {
+      const index = this.options.findIndex(
+        (option) => option.key === selectedOptionValue
+      );
+
+      if (index !== -1) {
+        return this.options[index].value;
+      }
     }
 
-    const index = this.options.findIndex(
-      (option) => option.key === selectedOptionValue
-    );
-
-    return this.options[index].value;
+    return '';
   }
 
   onSelectOption(optionKey: number | null): void {

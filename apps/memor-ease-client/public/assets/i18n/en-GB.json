@@ -1,4 +1,9 @@
 {
+  "common": {
+    "button": {
+      "save": "Save"
+    }
+  },
   "dashboard": {
     "title": "My topics",
     "topic": {
@@ -21,7 +26,11 @@
       "form": {
         "language-level": "Language level",
         "source-language": "Source language",
-        "target-language": "Target language"
+        "target-language": "Target language",
+        "title": {
+          "label": "Title of topic",
+          "placeholder": "Title of topic"
+        }
       }
     }
   },

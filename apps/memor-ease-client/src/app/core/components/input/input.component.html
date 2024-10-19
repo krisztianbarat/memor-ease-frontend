@@ -1,9 +1,12 @@
-<div class="form-group">
-  <label>{{ label | translate }}</label>
+<div class="form-group" *ngIf="untypedFormGroup" [formGroup]="untypedFormGroup">
+  <label *ngIf="label">{{ label | translate }}</label>
   <input
-    type="{{ type | translate }}"
+    type="{{ type }}"
+    formControlName="value"
     class="form-control"
     placeholder="{{ placeholder | translate }}"
   />
-  <small class="form-text text-muted">{{ description | translate }}</small>
+  <small *ngIf="description" class="form-text text-muted">{{
+    description | translate
+  }}</small>
 </div>

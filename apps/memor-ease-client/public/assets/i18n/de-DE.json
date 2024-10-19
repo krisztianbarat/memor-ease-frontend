@@ -1,4 +1,9 @@
 {
+  "common": {
+    "button": {
+      "save": "Speichern"
+    }
+  },
   "dashboard": {
     "title": "Meine Themen",
     "topic": {
@@ -21,7 +26,11 @@
       "form": {
         "language-level": "Sprachebene",
         "source-language": "Ausgangssprache",
-        "target-language": "Zielsprache"
+        "target-language": "Zielsprache",
+        "title": {
+          "label": "Titel des Themas",
+          "placeholder": "Titel des Themas"
+        }
       }
     }
   },

@@ -4,12 +4,18 @@
   [formGroup]="untypedFormGroup"
 >
   <div class="row">
+    <app-sync-button
+      [label]="'common.button.save' | translate"
+    ></app-sync-button>
+  </div>
+
+  <div class="row">
     <div class="col-12 col-md-2">
       <app-single-dropdown-selector
         [label]="'topic.create.form.language-level'"
         [defaultSelected]="untypedFormGroup.get('languageLevel')?.value"
         [options]="languageLevels"
-        [isNullValueSelectable]="true"
+        [isNullValueSelectable]="false"
         (selectedOption)="onSelectedLanguageLevelsOption($event)"
       ></app-single-dropdown-selector>
     </div>
@@ -24,7 +30,7 @@
       ></app-single-dropdown-selector>
     </div>
 
-    <div class="col-12 col-md-3">
+    <div class="col-12 col-md-2">
       <app-single-dropdown-selector
         [label]="'topic.create.form.target-language'"
         [defaultSelected]="untypedFormGroup.get('targetLanguage')?.value"
@@ -41,7 +47,8 @@
         [type]="'text'"
         [label]="'topic.create.form.title.label'"
         [placeholder]="'topic.create.form.title.placeholder'"
-        [description]="'topic.create.form.title.description'"
+        [required]="true"
+        (valueChanges)="onTitleValueChanges($event)"
       ></app-input>
     </div>
   </div>

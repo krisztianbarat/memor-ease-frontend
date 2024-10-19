@@ -1,4 +1,9 @@
 {
+  "common": {
+    "button": {
+      "save": "Mentés"
+    }
+  },
   "dashboard": {
     "title": "Topikjaim",
     "topic": {
@@ -21,7 +26,11 @@
       "form": {
         "language-level": "Nyelvi szint",
         "source-language": "Forrás nyelv",
-        "target-language": "Cél nyelv"
+        "target-language": "Cél nyelv",
+        "title": {
+          "label": "Topik címe",
+          "placeholder": "Topik címe"
+        }
       }
     }
   },

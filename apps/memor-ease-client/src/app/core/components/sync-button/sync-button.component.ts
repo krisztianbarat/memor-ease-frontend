@@ -15,7 +15,6 @@ export class SyncButtonComponent {
   @Output() clicked = new EventEmitter<void>();
 
   onClick(): void {
-    console.log('app-sync-button');
     this.clicked.emit();
   }
 }

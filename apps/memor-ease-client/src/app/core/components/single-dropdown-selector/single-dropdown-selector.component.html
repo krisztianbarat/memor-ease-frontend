@@ -8,11 +8,10 @@
       data-toggle="dropdown"
     >
       <div class="row">
-        <div class="col-11">{{ getSelectedOptionValue() }}</div>
-        <div class="col-1">x</div>
+        <div class="col-12">{{ getSelectedOptionValue() }}</div>
       </div>
     </button>
-    <div class="dropdown-menu">
+    <div class="dropdown-menu" #dropDown>
       <button
         *ngIf="isNullValueSelectable"
         class="dropdown-item"
